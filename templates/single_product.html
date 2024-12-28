@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ product.PRODUCT_NAME }}</title>
+    <link rel="stylesheet" href="/static/CSS/style.css">
+    <link rel="stylesheet" href="/static/CSS/single_product.css">
+
+</head>
+<body>
+    <div class="container">
+        <div class="product-image">
+            <img src="{{ product['IMAGE_URL'] }}" alt="{{ product['PRODUCT_NAME'] }}">
+        </div>
+        <div class="product-details">
+            <h1>{{ product['PRODUCT_NAME'] }}</h1>
+            <div class="info"><strong>Xuất xứ:</strong> {{ product['ORIGIN'] }}</div>
+            <div class="info"><strong>Màu sắc:</strong> {{ product['COLOR'] }}</div>
+            <div class="info"><strong>Giá tiền:</strong> {{ product['PRICE'] }} VND</div>
+            <div class="info"><strong>Thông tin khác:</strong> {{ product['OTHER_INFORMATION'] }}</div>
+        </div>
+    </div>
+    
+</body>
+</html>

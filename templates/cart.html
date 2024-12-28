@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <title>Giỏ Hàng</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='CSS/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='CSS/cart.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='CSS/checkout.css') }}">
+    <script src="{{ url_for('static', filename='JS/cart.js') }}"></script>
+</head>
+<body>
+    <section id="header">
+        <div class="header__title">
+            <a href="{{ url_for('index') }}">
+                <img src="{{ url_for('static', filename='images/logo.png') }}" class="header__logo" alt="Logo Văn Phòng Phẩm 3KA">
+            </a>
+            <p>Văn Phòng Phẩm 3KA</p>
+        </div>
+        <div>
+            <ul id="navbar">
+                <li><a href="{{ url_for('index') }}">HOME</a></li>
+                <li><a href="{{ url_for('product') }}">PRODUCTS</a></li>
+                <li><a href="#about">ABOUT US</a></li>
+                <li><a href="#contact">CONTACT</a></li>
+                <li>
+                    <a class="active" href="{{ url_for('cart') }}">
+                        <ion-icon name="cart-outline" class="navbar__cart"></ion-icon>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="cart__container">
+        <h2 class="cart__title">Giỏ Hàng</h2>
+        <table class="cart__table">
+            <thead>
+                <tr class="cart__header-row">
+                    <th class="cart__header">Sản phẩm</th>
+                    <th class="cart__header">Số lượng</th>
+                    <th class="cart__header">Thành tiền</th>
+                </tr>
+            </thead>
+            <tbody class="cart__body">
+                {% for item in cart_items %} 
+                <tr class="cart__row">
+                    <td class="cart__product-name">{{ item['PRODUCT_NAME'] }}</td>
+                    <td class="cart__quantity">
+                        <form action="{{ url_for('cart') }}" method="POST" class="cart__form">
+                            <input type="hidden" name="product_id" value="{{ item['PRODUCT_ID'] }}">
+                            <button type="submit" name="action" value="decrease" class="cart__button">-</button>
+                        </form>
+                        <span class="cart__number">{{ item['NUMBER_OF_PRODUCT'] }}</span>
+                        <form action="{{ url_for('cart') }}" method="POST" class="cart__form">
+                            <input type="hidden" name="product_id" value="{{ item['PRODUCT_ID'] }}">
+                            <button type="submit" name="action" value="increase" class="cart__button">+</button>
+                        </form>
+                    </td>
+                    <td class="cart__total">{{ item['TOTAL_AMOUNT'] }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </section>
+
+    <section class="checkout__section">
+        <div class="checkout__container">
+            <h3 class="checkout__money">Tổng số tiền: <span id="total__amount"></span> VND</h3>
+            <button class="checkout__button">Đặt hàng</button>
+        </div>
+    </section>    
+</body>
+</html>

@@ -1,0 +1,251 @@
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&family=Poppins:wght@100&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Spartan', sans-serif;
+}
+
+h1,h2,h4{
+    color: #222;
+
+}
+
+h1{
+    font-size: 50px;
+    line-height: 64px;
+}
+
+h2{
+    font-size: 46px;
+    line-height: 54px;
+}
+
+h4{
+    font-size: 20px;
+}
+
+h6{
+    font-weight: 700;
+    font-size: 12px;
+}
+
+p{
+    font-size: 16px;
+    color: #465b52;
+    margin: 15px 0 20px 0;
+}
+
+body{
+    width: 100%;
+}
+
+.section__p1{
+    padding: 40px 80px;
+}
+
+.section__m1{
+    margin: 40px 0;
+}
+
+/* HEADER */
+.header__logo{
+    width: 70px;
+    height: 70px;
+}
+.navbar__cart{
+  font-size: 35px;
+  color: black
+}
+
+#header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 7px 20px;
+    background: #a0e4ff;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+}
+
+.header__title{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.header__title p{
+    font-size: 35px;
+    font-family: 'Courier New', Courier, monospace;
+    color: rgb(244, 105, 18);
+    font-weight: 600;
+    margin-left: 20px;
+}
+
+#navbar{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#navbar li{
+    list-style: none;
+    padding: 0 30px;
+    position: relative;
+}
+
+#navbar li a{ 
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 600;
+    color: #1a1a1a;
+    transition: 0.3s ease;
+}
+
+#navbar li a:hover,
+#navbar li a.active{ 
+    color: #939393;
+}
+
+#navbar li a.active::after,#navbar li a:hover::after{ 
+   content: "";
+   width: 35%;
+   height: 3px;
+   background-color: #939393;
+   position: absolute;
+   bottom: -4px;
+   left: 50%;
+   transform: translateX(-50%);
+}
+
+#banner {
+    background-image: url('images/banner.jpg');
+    height: 70vh;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: 95%; 
+    background-position-x: center; 
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; 
+    justify-content: center;
+    padding: 0 80px; 
+}
+
+
+#banner h4{
+    padding-bottom: 15px;
+    color:rgb(253, 65, 96);
+}
+
+#banner h2{
+   color: rgb(255, 28, 66)
+}
+
+#product__section{
+    text-align: center;
+}
+
+.product__footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; 
+    width: 100%;
+}
+
+.product__container{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px; 
+    width: 100%;
+    padding: 20px; 
+}
+
+#paging {
+    text-align: center;
+    margin-top: 20px;
+}
+
+#paging a {
+    text-decoration: none;
+    background-color: #088178;
+    padding: 15px 20px;
+    border-radius: 4px;
+    color: white;
+    font-weight: 600;
+    display: inline-block; /* Ensures inline-block behavior for alignment */
+    line-height: 1; /* Reset line-height */
+    text-align: center; /* Center text and icons */
+    box-sizing: border-box;
+}
+
+#paging a ion-icon{
+    font-size: 14px;
+}
+
+.product__grid{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.product__item {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 10px;
+    text-align: center;
+    background-color: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column; 
+    justify-content: space-between; 
+    height: 350px;
+}
+.product__item img {
+    width: 100%;
+    max-width: 180px;
+    height: auto;
+    margin: 0 auto;
+    border-radius: 10px;
+}
+
+.product__item h3 {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 10px 0;
+    text-align: center;
+}
+
+.product__info {
+    margin-top: auto;
+    display: flex;
+    justify-content: space-between; 
+    align-items: center; 
+    padding: 5px 0; 
+}
+
+.product__info .detail__button {
+    text-decoration: none;
+    color: #fff;
+    background-color: #ccc;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 18px;
+    display: inline-block;
+}
+
+.product__info .detail__button:hover {
+    background-color: #b2b2b2;
+}
+
+.product__info ion-icon {
+    font-size: 30px;
+    color: #555;
+    cursor: pointer;
+}
+
+.product__info ion-icon:hover {
+    background-color: #95ffa3;
+    padding: 3px;
+    border-radius: 20px;
+}

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sản phẩm</title>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='CSS/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='CSS/single_product.css') }}">
+
+</head>
+<body>
+
+    <section id="header">
+        <div class="header__title">
+            <a href="{{ url_for('index') }}">
+                <img src="{{ url_for('static', filename='images/logo.png') }}" class="header__logo" alt="Logo Văn Phòng Phẩm 3KA">
+            </a>
+            <p>Văn Phòng Phẩm 3KA</p>
+        </div>
+        <div>
+            <ul id="navbar">
+                <li><a href="{{ url_for('index') }}">HOME</a></li>
+                <li><a class="active" href="{{ url_for('product') }}">PRODUCTS</a></li>
+                <li><a href="#">ABOUT US</a></li>
+                <li><a href="#">CONTACT</a></li>
+                <li>
+                    <a href="{{ url_for('cart') }}">
+                        <ion-icon name="cart-outline" class="navbar__cart"></ion-icon>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="product__section" class="pro__section">
+        <h2>Danh Sách Sản Phẩm</h2>
+        <div class="product__grid">
+            {% for product in products %}
+            <div class="product__item">
+                <img src="{{ product['image_url'] or url_for('static', filename='images/default.png') }}" alt="Ảnh về {{ product['PRODUCT_NAME'] }}">
+                <h3>{{ product['PRODUCT_NAME'] }}</h3>
+                <div class="product__info">
+                    <a href="{{ url_for('single_product', product_id=product['PRODUCT_ID']) }}" class="detail__button">Chi tiết</a>
+                    <a href="" title="Thêm vào giỏ hàng">
+                        <ion-icon name="cart-outline"></ion-icon>
+                    </a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+    
+</body>
+</html>
