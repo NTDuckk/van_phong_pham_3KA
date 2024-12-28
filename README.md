@@ -4,7 +4,7 @@ Bước 1: Clone repository
 
 Sao chép mã nguồn từ GitHub và truy cập thư mục:
 
-git clone https://github.com/yourusername/van-phong-pham-3ka.git
+git clone https://github.com/NTDuckk/van_phong_pham_3KA.git
 cd van-phong-pham-3ka
 
 Bước 2: Tạo và kích hoạt virtual environment
